@@ -1,0 +1,46 @@
+<h1>Programa de Colas</h1>
+<hr />
+
+<div class="row">
+  <div class="col-6">
+    <h4>Opciones</h4>
+    <ul class="list-group">
+      <a class="list-group-item list-group-item-action" routerLink="/public">
+        Pantalla publica
+      </a>
+      <a
+        class="list-group-item list-group-item-action"
+        routerLink="/nuevo-ticket"
+      >
+        Crear Tickets
+      </a>
+    </ul>
+  </div>
+
+  <div class="col-6">
+    <h4>Configurar escritorio</h4>
+
+    <!-- (keyup.enter)="entrar(txtEscritorio.value)" -->
+    <div action="">
+      <input
+        (keyup.enter)="entrar(txtEscritorio.value)"
+        #txtEscritorio
+        autofocus
+        class="form-control"
+        name="escritorio"
+        placeholder="Escritorio"
+        required
+        type="number"
+      />
+
+      <br />
+      <button
+        (click)="entrar(txtEscritorio.value)"
+        type="button"
+        class="btn btn-primary btn-block"
+      >
+        Ingresar
+      </button>
+    </div>
+  </div>
+</div>
