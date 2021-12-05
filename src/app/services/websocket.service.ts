@@ -35,6 +35,25 @@ export class WebsocketService {
 
   // Listen to any event from the server
   listen (event: string): Observable<any> {
+    console.log('Escuchando', event)
     return this.socket.fromEvent(event)
+  }
+
+  // Emitir un evento solicitar ticket
+  async newTicket (ticket: number): Promise<number> {
+    return await new Promise((resolve, reject) => {
+      this.emit('nuevo-ticket', { ticket }, (resp: number) => {
+        resolve(resp)
+      })
+    })
+  }
+
+  // Emitir un evento siguiente ticket
+  async nextTicket (escritorio: number): Promise<any> {
+    return await new Promise((resolve, reject) => {
+      this.emit('siguiente-ticket-trabajar', { escritorio }, (ticket: any) => {
+        resolve(ticket)
+      })
+    })
   }
 }

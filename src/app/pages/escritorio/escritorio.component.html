@@ -1,5 +1,10 @@
-<h1>Escritorio</h1>
-<h4>Atendiendo a <small>....</small></h4>
+<h1>Escritorio: #{{ escritorio }}</h1>
+<h4 *ngIf="ticket">
+  Usted esta atendiendo el ticket: <strong>{{ ticket }}</strong>
+</h4>
+<h4 *ngIf="ticket === undefined">No hay ningun ticket pendiente</h4>
 <hr />
 
-<button class="btn btn-primary btn-lg">Atender siguiente ticket</button>
+<button (click)="siguienteTicket()" class="btn btn-primary btn-lg">
+  Atender siguiente ticket
+</button>

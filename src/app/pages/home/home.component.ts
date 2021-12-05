@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/strict-boolean-expressions, no-useless-return, @typescript-eslint/no-floating-promises */
-import { Component, OnInit } from '@angular/core'
+/* eslint-disable  @typescript-eslint/no-floating-promises */
+import { Component } from '@angular/core'
 import { Router } from '@angular/router'
 
 @Component({
@@ -7,14 +7,14 @@ import { Router } from '@angular/router'
   templateUrl: './home.component.html',
   styles: []
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
+  txtEscritorio: number = 0
+
   constructor (private readonly router: Router) { }
 
-  ngOnInit (): void {
-  }
-
-  entrar (numero: string): void {
-    if (!numero) { return }
-    this.router.navigate(['/escritorio', numero])
+  entrar (): void {
+    if (this.txtEscritorio === 0) { return }
+    window.localStorage.setItem('escritorio', this.txtEscritorio.toString())
+    this.router.navigate(['/escritorio', this.txtEscritorio])
   }
 }

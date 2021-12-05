@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'escritorio/:id', component: EscritorioComponent },
   { path: 'home', component: HomeComponent },
   { path: 'nuevo-ticket', component: NuevoTicketComponent },
-  { path: 'public', component: PublicoComponent },
+  { path: 'publico', component: PublicoComponent },
   { path: '**', redirectTo: 'home' }
 ]
 

@@ -1,12 +1,15 @@
 <table>
   <tr>
     <td>
-      <span id="lbl-nuevo-ticket"> Cargando... </span>
+      <span *ngIf="!numero" id="lbl-nuevo-ticket">Cargando...</span>
+      <span *ngIf="numero" id="lbl-nuevo-ticket"> Ticket #{{ numero }} </span>
     </td>
   </tr>
   <tr>
     <td>
-      <button class="btn btn-secondary btn-lg">Generar nuevo ticket</button>
+      <button (click)="newTicket()" class="btn btn-secondary btn-lg">
+        Generar nuevo ticket
+      </button>
     </td>
   </tr>
 </table>
